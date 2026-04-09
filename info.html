@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Sutil Arte: Análisis Filosófico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Inter:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdfa;
+            color: #0f172a;
+        }
+        
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        .bg-palette-dark { background-color: #0f172a; }
+        .bg-palette-teal { background-color: #14b8a6; }
+        .bg-palette-orange { background-color: #f97316; }
+        .bg-palette-purple { background-color: #8b5cf6; }
+        
+        .text-palette-teal { color: #14b8a6; }
+        .text-palette-orange { color: #f97316; }
+        .text-palette-purple { color: #8b5cf6; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f0fdfa;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #14b8a6;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="custom-scrollbar antialiased">
+
+    <nav class="sticky top-0 z-50 bg-palette-dark text-white shadow-lg border-b-4 border-teal-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <span class="font-display font-bold text-xl tracking-tight uppercase">
+                    Análisis <span class="text-palette-teal">Manson</span>
+                </span>
+                <span class="text-sm hidden md:block text-gray-300">Deconstrucción Filosófica de la Autoayuda</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-palette-dark text-white pt-20 pb-24 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#14b8a6 2px, transparent 2px); background-size: 30px 30px;"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                El Sutil Arte de que te Importe un <span class="text-palette-orange">Carajo</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-light text-gray-300 mb-8">
+                Infografia epistemológica y ética de los argumentos de Mark Manson por Valencia Garcia Jose Alberto
+            </p>
+            <div class="flex justify-center gap-4 text-sm uppercase tracking-widest font-semibold text-palette-teal">
+                <span>Contradicciones</span> &bull; <span>Puntos Filosóficos</span> &bull; <span>Argumentos Clave</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20 pb-20">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            
+            <section class="glass-card rounded-2xl p-8 transition-transform hover:-translate-y-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-palette-teal text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">01</div>
+                    <h2 class="text-2xl font-bold text-slate-800">No lo intentes</h2>
+                </div>
+                <p class="text-slate-600 mb-6 font-medium leading-relaxed">
+                    El imperativo hedonista moderno nos exige buscar constantemente sensaciones positivas. Manson postula, basándose en Alan Watts, "La Ley del Esfuerzo Inverso".
+                </p>
+                
+                <div class="bg-slate-50 p-4 rounded-lg mb-6 border border-slate-200">
+                    <h3 class="font-bold text-palette-orange text-sm uppercase mb-2">Contradicción Filosófica</h3>
+                    <p class="text-sm text-slate-700">Deseamos experiencias positivas, pero el deseo mismo es una experiencia negativa. Aceptar la experiencia negativa es, paradójicamente, una experiencia positiva.</p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="chartCap1"></canvas>
+                </div>
+                <p class="text-xs text-center text-slate-500 mt-4 italic">La gráfica ilustra cómo a mayor esfuerzo por forzar la felicidad, el estado real de bienestar decae dramáticamente.</p>
+            </section>
+
+            <section class="glass-card rounded-2xl p-8 transition-transform hover:-translate-y-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-palette-orange text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">02</div>
+                    <h2 class="text-2xl font-bold text-slate-800">La felicidad es un problema</h2>
+                </div>
+                <p class="text-slate-600 mb-6 font-medium leading-relaxed">
+                    Un argumento ontológico sobre el sufrimiento. El dolor humano es un mecanismo biológico y psicológico inevitable. La falacia reside en creer que existe una vida sin problemas.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="bg-teal-50 p-4 rounded-xl border border-teal-100">
+                        <div class="text-2xl mb-2">&#9889;</div>
+                        <h4 class="font-bold text-slate-800 text-sm">Premisa Débil</h4>
+                        <p class="text-xs text-slate-600">Evitar el dolor trae felicidad.</p>
+                    </div>
+                    <div class="bg-orange-50 p-4 rounded-xl border border-orange-100">
+                        <div class="text-2xl mb-2">&#128296;</div>
+                        <h4 class="font-bold text-slate-800 text-sm">Premisa de Manson</h4>
+                        <p class="text-xs text-slate-600">Resolver problemas trae felicidad.</p>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="chartCap2"></canvas>
+                </div>
+                <p class="text-xs text-center text-slate-500 mt-4 italic">Distribución del origen de la insatisfacción constante comparada con la satisfacción derivada de resolver problemas voluntarios.</p>
+            </section>
+        </div>
+
+        <section class="glass-card rounded-2xl p-8 mb-12 border-l-8 border-l-palette-purple">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-full md:w-1/2">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-palette-purple text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">03</div>
+                        <h2 class="text-3xl font-bold text-slate-800">No eres especial</h2>
+                    </div>
+                    <p class="text-slate-600 mb-4 leading-relaxed">
+                        Crítica directa al movimiento de la autoestima de los 90s. La tiranía del excepcionalismo crea una sociedad de narcisistas vulnerables o víctimas perpetuas.
+                    </p>
+                    <ul class="space-y-3 mb-6 text-sm text-slate-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-palette-purple font-bold">&#10003;</span>
+                            <span><strong>Punto Filosófico:</strong> La aceptación de la mediocridad libera recursos cognitivos para el crecimiento real.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-palette-purple font-bold">&#10003;</span>
+                            <span><strong>Argumento:</strong> Las métricas extremas dominan la información, sesgando nuestra percepción de la normalidad.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="chart-container">
+                            <canvas id="chartCap3"></canvas>
+                        </div>
+                        <p class="text-xs text-center text-slate-500 mt-2 italic">Curva de distribución normal. La abrumadora mayoría de la experiencia humana reside en el centro, no en los extremos idealizados o catastrofizados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            
+            <section class="glass-card rounded-2xl p-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-slate-800 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">04</div>
+                    <h2 class="text-2xl font-bold text-slate-800">El valor del sufrimiento</h2>
+                </div>
+                <p class="text-slate-600 mb-6 font-medium leading-relaxed">
+                    Introducción a la "Cebolla de la Autoconciencia". El nivel más profundo de nuestras emociones está gobernado por nuestros valores fundamentales.
+                </p>
+
+                <div class="flex flex-col gap-4 mb-6">
+                    <div class="p-4 border-l-4 border-red-500 bg-red-50 rounded-r-lg">
+                        <h4 class="font-bold text-slate-800 mb-1">Valores Basura (Destructivos)</h4>
+                        <p class="text-sm text-slate-600">Placer inmediato, éxito material ostentoso, tener siempre la razón, positivismo tóxico.</p>
+                    </div>
+                    <div class="p-4 border-l-4 border-teal-500 bg-teal-50 rounded-r-lg">
+                        <h4 class="font-bold text-slate-800 mb-1">Valores Óptimos (Constructivos)</h4>
+                        <p class="text-sm text-slate-600">Honestidad, vulnerabilidad, defender a otros, curiosidad implacable.</p>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="chartCap4"></canvas>
+                </div>
+                <p class="text-xs text-center text-slate-500 mt-4 italic">Comparación analítica entre valores basados en realidades internas vs valores dictados por circunstancias externas.</p>
+            </section>
+
+            <section class="glass-card rounded-2xl p-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-slate-800 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">05</div>
+                    <h2 class="text-2xl font-bold text-slate-800">Siempre estás eligiendo</h2>
+                </div>
+                <p class="text-slate-600 mb-6 font-medium leading-relaxed">
+                    Inspirado en el existencialismo sartreano. Distinción crucial entre culpa (quién provocó el evento) y responsabilidad (quién debe lidiar con él).
+                </p>
+
+                <div class="grid grid-cols-2 gap-0 border-2 border-slate-800 rounded-lg overflow-hidden mb-8 text-center">
+                    <div class="bg-slate-800 text-white p-3 font-bold">Concepto</div>
+                    <div class="bg-slate-800 text-white p-3 font-bold">Orientación</div>
+                    
+                    <div class="p-4 border-b border-r border-slate-200 bg-white font-semibold">Culpa</div>
+                    <div class="p-4 border-b border-slate-200 bg-red-50 text-red-700">Pasado / Externa</div>
+                    
+                    <div class="p-4 border-r border-slate-200 bg-white font-semibold">Responsabilidad</div>
+                    <div class="p-4 bg-teal-50 text-teal-700">Presente / Interna</div>
+                </div>
+
+                <div class="bg-slate-100 p-5 rounded-xl border border-slate-300 relative">
+                    <div class="absolute -top-3 -right-3 text-4xl opacity-20">&#10077;</div>
+                    <h3 class="font-bold text-slate-800 mb-2">El Argumento Clave</h3>
+                    <p class="text-sm text-slate-700">Aunque no seas culpable de tus traumas o problemas, eres 100% responsable de cómo los interpretas y cómo respondes a ellos hoy. Rechazar esta responsabilidad es elegir el victimismo perpetuo.</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="bg-palette-dark text-white rounded-3xl p-8 md:p-12 mb-12 relative overflow-hidden shadow-2xl">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-palette-orange opacity-20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            
+            <div class="flex flex-col md:flex-row gap-12 relative z-10">
+                <div class="w-full md:w-1/2">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-white text-palette-dark w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">06</div>
+                        <h2 class="text-3xl font-bold">Te equivocas en todo</h2>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-lg">
+                        Un ataque epistemológico a la certeza. La mente humana es una máquina de crear significado propensa a fallos, sesgos y memorias fabricadas.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                            <h4 class="font-bold text-palette-orange">Contradicción Evolutiva</h4>
+                            <p class="text-sm text-gray-400 mt-1">El crecimiento personal requiere la destrucción de los valores anteriores. Para avanzar, debes aceptar activamente que tus creencias actuales son probablemente erróneas o incompletas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 flex items-center">
+                    <div class="w-full bg-slate-900 rounded-xl p-4 border border-slate-700">
+                        <div class="chart-container">
+                            <canvas id="chartCap6"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            
+            <section class="glass-card rounded-2xl p-8 border-t-8 border-t-palette-orange">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-palette-orange text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">07</div>
+                    <h2 class="text-2xl font-bold text-slate-800">El fracaso es el camino</h2>
+                </div>
+                <p class="text-slate-600 mb-6 font-medium">
+                    Inversión de la cadena causal tradicional de la acción. Basado en principios del pragmatismo y la terapia cognitivo-conductual.
+                </p>
+
+                <div class="bg-slate-50 rounded-xl p-6 mb-6">
+                    <h4 class="font-bold text-center mb-4 text-slate-500 text-sm uppercase">El Modelo Convencional (Erróneo)</h4>
+                    <div class="flex justify-between items-center text-sm font-bold text-slate-400">
+                        <span>Inspiración</span>
+                        <span>&#8594;</span>
+                        <span>Motivación</span>
+                        <span>&#8594;</span>
+                        <span>Acción</span>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 border border-orange-200 rounded-xl p-6">
+                    <h4 class="font-bold text-center mb-4 text-palette-orange text-sm uppercase">El Principio "Haz Algo" (Manson)</h4>
+                    <div class="flex justify-between items-center text-sm font-bold text-slate-800">
+                        <span class="bg-white px-3 py-2 rounded shadow text-palette-orange">Acción</span>
+                        <span class="text-palette-orange text-xl">&#8594;</span>
+                        <span class="bg-white px-3 py-2 rounded shadow">Inspiración</span>
+                        <span class="text-palette-orange text-xl">&#8594;</span>
+                        <span class="bg-white px-3 py-2 rounded shadow">Motivación</span>
+                    </div>
+                    <p class="text-xs text-center mt-4 text-slate-600">La acción no es solo el efecto de la motivación, es la causa de la misma.</p>
+                </div>
+            </section>
+
+            <section class="glass-card rounded-2xl p-8 border-t-8 border-t-palette-teal">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-palette-teal text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">08</div>
+                    <h2 class="text-2xl font-bold text-slate-800">La importancia de decir no</h2>
+                </div>
+                <p class="text-slate-600 mb-6 font-medium">
+                    La paradoja de la elección y el compromiso. Rechazar alternativas es lo único que otorga significado a nuestras elecciones.
+                </p>
+
+                <div class="chart-container mb-4">
+                    <canvas id="chartCap8"></canvas>
+                </div>
+                
+                <div class="bg-teal-50 p-4 rounded-lg border border-teal-100 mt-4">
+                    <h3 class="font-bold text-palette-teal text-sm uppercase mb-1">Argumento Ético</h3>
+                    <p class="text-sm text-slate-700">Evitar el rechazo (tanto darlo como recibirlo) elimina los límites en las relaciones, creando dinámicas tóxicas de codependencia. El compromiso voluntario libera, no restringe.</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="bg-slate-900 text-white rounded-3xl p-10 text-center relative overflow-hidden">
+            <div class="absolute -top-24 -left-24 w-48 h-48 bg-slate-700 rounded-full blur-3xl opacity-50"></div>
+            <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-slate-800 rounded-full blur-3xl opacity-50"></div>
+            
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <div class="bg-white text-slate-900 w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6">09</div>
+                <h2 class="text-4xl font-bold mb-6">...Y luego mueres</h2>
+                <p class="text-xl text-gray-300 mb-8 font-light leading-relaxed">
+                    La perspectiva estoica final (Memento Mori) y las teorías de Ernest Becker. La ansiedad existencial nace de la negación de la muerte y nuestros "proyectos de inmortalidad".
+                </p>
+                
+                <div class="bg-slate-800/80 p-8 rounded-2xl border border-slate-600 backdrop-blur-sm text-left">
+                    <h3 class="text-2xl font-bold text-white mb-4 text-center border-b border-slate-600 pb-4">Conclusión Filosófica de la Obra</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Enfrentar la realidad de nuestra propia mortalidad borra instantáneamente los valores superficiales. Es la única métrica verdadera para decidir qué debe importarnos.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed font-bold text-center text-palette-teal">
+                        "Preocuparse por algo más grande que uno mismo es el antídoto al miedo a la muerte."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-500 py-8 text-center text-xs border-t border-slate-800">
+        <p>Infografía interactiva desarrollada con Tailwind CSS y Chart.js. Renderizado en Canvas.</p>
+        <p class="mt-2 text-slate-700">Se confirma explícitamente el no uso de elementos SVG ni librerías Mermaid JS en esta estructura.</p>
+    </footer>
+
+    <script>
+        const wrapLabel = (label) => {
+            if (label.length <= 16) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (let i = 0; i < words.length; i++) {
+                if ((currentLine + words[i]).length > 16) {
+                    if (currentLine.trim() !== '') lines.push(currentLine.trim());
+                    currentLine = words[i] + ' ';
+                } else {
+                    currentLine += words[i] + ' ';
+                }
+            }
+            if (currentLine.trim() !== '') lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const processLabels = (labelsArray) => {
+            return labelsArray.map(label => wrapLabel(label));
+        };
+
+        const globalTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#64748b';
+        Chart.defaults.plugins.legend.labels.usePointStyle = true;
+
+        const ctx1 = document.getElementById('chartCap1').getContext('2d');
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: processLabels(['Falta de Esfuerzo', 'Esfuerzo Leve', 'Esfuerzo Moderado', 'Esfuerzo Intenso', 'Esfuerzo Obsesivo']),
+                datasets: [{
+                    label: 'Percepción de Felicidad Real',
+                    data: [80, 60, 40, 20, 5],
+                    borderColor: '#f97316',
+                    backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#0f172a'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: globalTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        title: { display: true, text: 'Nivel de Bienestar' } 
+                    },
+                    x: { 
+                        title: { display: true, text: 'Esfuerzo por ser Feliz' } 
+                    }
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('chartCap2').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: processLabels(['Evitación de problemas (Produce Ansiedad)', 'Resolución activa (Produce Significado)', 'Creación de problemas imaginarios (Neurósis)']),
+                datasets: [{
+                    data: [60, 25, 15],
+                    backgroundColor: ['#0f172a', '#14b8a6', '#f97316'],
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: {
+                    tooltip: globalTooltipConfig,
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+
+        const ctx3 = document.getElementById('chartCap3').getContext('2d');
+        const normalDistData = [];
+        const labels3 = [];
+        for (let i = -3; i <= 3; i += 0.5) {
+            labels3.push(i === 0 ? 'Promedio' : (i === -3 ? 'Pésimo' : (i === 3 ? 'Excepcional' : '')));
+            normalDistData.push(Math.exp(-Math.pow(i, 2) / 2) / Math.sqrt(2 * Math.PI));
+        }
+        new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: processLabels(labels3),
+                datasets: [{
+                    label: 'Volumen de Población',
+                    data: normalDistData,
+                    borderColor: '#8b5cf6',
+                    backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: globalTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { display: false },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        const ctx4 = document.getElementById('chartCap4').getContext('2d');
+        new Chart(ctx4, {
+            type: 'radar',
+            data: {
+                labels: processLabels(['Control Interno', 'Basado en Realidad', 'Útil Socialmente', 'Basado en Emoción', 'Dependencia Externa']),
+                datasets: [
+                    {
+                        label: 'Valores Óptimos',
+                        data: [90, 85, 80, 20, 10],
+                        backgroundColor: 'rgba(20, 184, 166, 0.3)',
+                        borderColor: '#14b8a6',
+                        pointBackgroundColor: '#14b8a6'
+                    },
+                    {
+                        label: 'Valores Basura',
+                        data: [15, 20, 10, 95, 90],
+                        backgroundColor: 'rgba(249, 115, 22, 0.3)',
+                        borderColor: '#f97316',
+                        pointBackgroundColor: '#f97316'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: globalTooltipConfig
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0,0,0,0.1)' },
+                        grid: { color: 'rgba(0,0,0,0.1)' },
+                        pointLabels: { font: { size: 10 } },
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+
+        const ctx6 = document.getElementById('chartCap6').getContext('2d');
+        new Chart(ctx6, {
+            type: 'bar',
+            data: {
+                labels: processLabels(['Certeza Absoluta', 'Búsqueda de la Verdad', 'Aceptación de la Ignorancia', 'Mentalidad de Aprendiz']),
+                datasets: [{
+                    label: 'Nivel de Crecimiento Personal',
+                    data: [5, 45, 80, 95],
+                    backgroundColor: ['#ef4444', '#f59e0b', '#14b8a6', '#8b5cf6'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: globalTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: 'rgba(255,255,255,0.5)' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: 'rgba(255,255,255,0.8)' }
+                    }
+                }
+            }
+        });
+
+        const ctx8 = document.getElementById('chartCap8').getContext('2d');
+        new Chart(ctx8, {
+            type: 'bubble',
+            data: {
+                datasets: [
+                    {
+                        label: 'Libertad Profunda (Compromiso)',
+                        data: [{x: 80, y: 80, r: 25}],
+                        backgroundColor: 'rgba(20, 184, 166, 0.8)'
+                    },
+                    {
+                        label: 'Libertad Superficial (Sin rechazos)',
+                        data: [{x: 20, y: 20, r: 15}],
+                        backgroundColor: 'rgba(249, 115, 22, 0.8)'
+                    },
+                    {
+                        label: 'Miedo al Compromiso',
+                        data: [{x: 10, y: 50, r: 10}],
+                        backgroundColor: 'rgba(15, 23, 42, 0.6)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label;
+                            }
+                        }
+                    },
+                    legend: { position: 'bottom' }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Profundidad de Experiencia' }, min: 0, max: 100 },
+                    y: { title: { display: true, text: 'Nivel de Significado' }, min: 0, max: 100 }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
